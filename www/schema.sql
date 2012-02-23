@@ -1,0 +1,11 @@
+CREATE TABLE `%s` (
+	`FullName` VARCHAR(255) NOT NULL,
+	`Email` VARCHAR(255) NOT NULL,
+	`Birthday` VARCHAR(10) NOT NULL,
+	`Registered` INT UNSIGNED NOT NULL,
+	`Status` ENUM('On','Off') NOT NULL DEFAULT 'Off',
+	PRIMARY KEY (`Email`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+ROW_FORMAT=DEFAULT

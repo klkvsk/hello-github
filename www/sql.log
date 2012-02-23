@@ -1,0 +1,38 @@
+DROP TABLE IF EXISTS `users`
+
+CREATE TABLE `users` (
+	`FullName` VARCHAR(255) NOT NULL,
+	`Email` VARCHAR(255) NOT NULL,
+	`Birthday` VARCHAR(10) NOT NULL,
+	`Registered` INT UNSIGNED NOT NULL,
+	`Status` ENUM('On','Off') NOT NULL DEFAULT 'Off',
+	PRIMARY KEY (`Email`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=MyISAM
+ROW_FORMAT=DEFAULT
+
+SHOW COLUMNS FROM `users`
+
+INSERT INTO `users` VALUES ('Иванов Иван', 'ivan@aaa.ru', '12.01.1974', '1197463260', 'On')
+
+INSERT INTO `users` VALUES ('Петров Петр', 'petr@mailtest.ru', '01.03.1969', '1197567660', 'Off')
+
+INSERT INTO `users` VALUES ('Сидоров Семен', 'sidr@test2.ru', '02.03.1989', '1197598860', 'Off')
+
+INSERT INTO `users` VALUES ('Пупкин Василий', 'pupkin@testtest.ru', '18.11.1988', '1197722460', 'On')
+
+INSERT INTO `users` VALUES ('Кузнецов Александр', 'smith@smith.com', '04.03.1999', '1197764880', 'On')
+
+INSERT INTO `users` VALUES ('Пушкин Александр', 'pas@pas.ru', '06.06.1799', '1197895260', 'Off')
+
+INSERT INTO `users` VALUES ('Лермонтов Михаил', 'lermontov@yyyy.ru', '03.10.1814', '1197981660', 'Off')
+
+INSERT INTO `users` VALUES ('Гоголь Николай', 'gogol@gggg.ru', '19.03.1809', '945607260', 'Off')
+
+SELECT `Email` FROM `users` ORDER BY RAND() LIMIT 1
+
+SELECT * FROM `users` WHERE `Email` = "pas@pas.ru"
+
+UPDATE `users` SET `FullName`='Пушкин Александр', `Email`='pas@pas.ru', `Birthday`='06.06.1799', `Registered`='1197895260', `Status`='On' WHERE `Email` = "pas@pas.ru"
+
